@@ -22,11 +22,11 @@ class AnnotationsController < ApplicationController
   end
 
   def show
-    annotation      = @book.annotations.find(params[:id])
+    annotation      = @book.annotations.show_format.find(params[:id])
     urls            = {}
     urls[:previous] = book_annotation_url(@book, annotation.previous_annotation)
     urls[:next]     = book_annotation_url(@book, annotation.next_annotation)
-    response        = AnnotationResponse.show_response(annotation.show_format, urls)
+    response        = AnnotationResponse.show_response(annotation, urls)
     respond_with response
   end
 

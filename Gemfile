@@ -32,5 +32,6 @@ group :development, :test do
   gem 'machinist'
   gem 'faker'
   gem 'shoulda'
+  gem 'thin'
 #  gem 'ruby-debug19'
 end
