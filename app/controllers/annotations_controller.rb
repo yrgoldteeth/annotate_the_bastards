@@ -1,7 +1,8 @@
 class AnnotationsController < ApplicationController
   respond_to :json, :xml
   before_filter :get_book
-  before_filter :get_annotation, :only => [:show]
+  before_filter :get_annotation,  :only => [:show]
+  before_filter :validate_params, :only => [:index]
 
   protected
   def get_book
@@ -20,12 +21,61 @@ class AnnotationsController < ApplicationController
     end
   end
 
+  def validate_params
+    keys = %w(start_page before after)
+    if (keys & params.keys).count > 1
+      response = {:error => %Q(Choose only one param from: #{keys.join(', ')})}
+      respond_with response and return
+    end
+
+    if params[:start_page].present?
+      unless @book.page_range.include?(params[:start_page].to_i)
+        response = {:error => %(Not a valid start page.)}
+        respond_with response and return
+      end
+    end
+
+    if params[:before].present?
+      unless @book.annotations.find_by_id(params[:before])
+        response = {:error => %(No annotation found with that id.)}
+        respond_with response and return
+      end
+    end
+    
+    if params[:after].present?
+      unless @book.annotations.find_by_id(params[:after])
+        response = {:error => %(No annotation found with that id.)}
+        respond_with response and return
+      end
+    end
+  end
+
   public
-  #TODO filtering, dawg.
   def index
-    response = []
-    @book.annotations.index_format.each do |annotation|
-      response << AnnotationResponse.index_response(annotation, book_annotation_url(@book, annotation))
+    if params[:results_count].present?
+      count = 1..20.include?(params[:results_count].to_i) ? params[:results_count].to_i : 20
+    else
+      count = 20
+    end
+    
+    bucket = @book.annotations.index_format.results_count(count)
+
+    if params[:start_page].present?
+      bucket = bucket.start_page(params[:start_page].to_i)
+    end
+
+    if params[:before].present?
+      bucket = bucket.before(@book.annotations.find(params[:before]))
+    end
+
+    if params[:after].present?
+      bucket = bucket.after(@book.annotations.find(params[:after]))
+    end
+
+    response = {}
+    response[:annotations] = []
+    bucket.each do |annotation|
+      response[:annotations] << AnnotationResponse.index_response(annotation, book_annotation_url(@book, annotation))
     end
     respond_with response
   end

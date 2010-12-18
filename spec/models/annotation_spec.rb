@@ -9,28 +9,31 @@ describe Annotation do
   it {should validate_presence_of(:line_number)}
 
   context 'scopes' do
-    before{ 5.times{Annotation.make} }
+    before do
+      @first  = Annotation.make(:page_number => 5,  :line_number => 5)
+      @second = Annotation.make(:page_number => 5,  :line_number => 23)
+      @third  = Annotation.make(:page_number => 6,  :line_number => 2)
+      @fourth = Annotation.make(:page_number => 6,  :line_number => 9)
+      @fifth  = Annotation.make(:page_number => 28, :line_number => 22)
+    end
 
     describe '.start_page' do
       it 'returns results equal to or greater than the page number received' do
         Annotation.start_page(5).minimum("page_number").should >= 5
       end
     end
-    
-    describe '.result_set' do
-      it 'returns page_number, line_number, body, title and original url in collection' do
-        Annotation.result_set.map(&:attributes).map(&:keys).uniq.flatten.sort.should == %w(original_url title page_number line_number body).sort
+
+    describe '.before' do
+      it 'returns results from earlier than the page' do
+        Annotation.before(@third).count.should == 2
+      end
+      
+      it 'returns results from earlier on the same page' do
+        Annotation.before(@fourth).include?(@third).should be true
       end
     end
-
+    
     describe '.after' do
-      before do
-        Annotation.delete_all
-        @first  = Annotation.make(:page_number => 5, :line_number => 5)
-        @second = Annotation.make(:page_number => 5, :line_number => 23)
-        3.times { Annotation.make(:page_number => rand(10) + 6) }
-      end
-
       it 'returns results from later than the page' do
         Annotation.after(@first).count.should == 4
       end

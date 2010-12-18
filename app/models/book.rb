@@ -15,4 +15,8 @@ class Book < ActiveRecord::Base
   def to_param
     slug
   end
+
+  def page_range
+    annotations.minimum(:page_number)..annotations.maximum(:page_number)
+  end
 end

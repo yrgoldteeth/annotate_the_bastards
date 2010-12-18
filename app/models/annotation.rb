@@ -2,10 +2,11 @@ class Annotation < ActiveRecord::Base
   belongs_to :book
   validates_presence_of   :title, :body, :original_url, :page_number, :line_number
 
-  scope :index_format,       limit(10).select([:id, :page_number, :line_number, :title])
+  scope :index_format,       select([:id, :page_number, :line_number, :title])
   scope :show_format,        select([:id, :page_number, :line_number, :title, :body, :original_url, :book_id])
   scope :ordered,            order("annotations.page_number, annotations.line_number ASC")
   scope :reverse_ordered,    order("annotations.page_number DESC").order("annotations.line_number DESC")
+  scope :results_count,      lambda {|results_count| limit(results_count)}
   scope :for_book,           lambda {|book| ordered.where('annotations.book_id = ?', book.id)}
   scope :start_page,         lambda {|page| ordered.where('annotations.page_number >= ?', page)}
   scope :before,             lambda {|annotation| 
