@@ -13,7 +13,7 @@ class AnnotationsController < ApplicationController
   end
 
   def get_annotation
-    @annotation = @book.annotations.show_format.find(params[:id])
+    @annotation = @book.annotations.show_format.find_by_id(params[:id])
     unless @annotation
       response = {:error => %(No annotation found with that id.)}
       respond_with response and return
