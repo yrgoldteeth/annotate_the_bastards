@@ -1,4 +1,7 @@
 AnnotateTheBastards::Application.routes.draw do
-  # root :to => "welcome#index"
-  match 'books/:slug' => 'books#index'
+  root :to => "books#index"
+  
+  resources :books, :only => [:index, :show] do
+    resources :annotations, :only => [:index, :show]
+  end
 end
