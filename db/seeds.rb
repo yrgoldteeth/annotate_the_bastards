@@ -16,3 +16,7 @@ books = [
         ]
 
 books.each{|b| Book.create!(b)}
+
+jr_files = Dir.glob('doc/jrnotes*').sort
+
+jr_files.each{|f|p=JrParser.new(f,true);p.run!}
