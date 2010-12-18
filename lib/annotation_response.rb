@@ -1,11 +1,13 @@
 class AnnotationResponse
   class << self
-    def index_collection annotation, url
+    def index_response annotation, url
+      {:description => annotation.to_s, :annotation_url => url}
+    end
+
+    def show_response annotation, urls={}
       annotation_hash = annotation.attributes
       annotation_hash.delete("id")
-      annotation_hash.delete("body")
-      annotation_hash["annotation_url"] = url
-      annotation_hash
+      annotation_hash.merge(urls)
     end
   end
 end

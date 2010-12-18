@@ -15,8 +15,8 @@ class AnnotationsController < ApplicationController
   #TODO filtering, dawg.
   def index
     response = []
-    @book.annotations.result_set.each do |annotation|
-      response << AnnotationResponse.index_collection(annotation, book_annotation_url(@book, annotation))
+    @book.annotations.index_format.each do |annotation|
+      response << AnnotationResponse.index_response(annotation, book_annotation_url(@book, annotation))
     end
     respond_with response
   end
@@ -26,7 +26,7 @@ class AnnotationsController < ApplicationController
     urls            = {}
     urls[:previous] = book_annotation_url(@book, annotation.previous_annotation)
     urls[:next]     = book_annotation_url(@book, annotation.next_annotation)
-    response        = AnnotationResponse.show_response(annotation, urls)
+    response        = AnnotationResponse.show_response(annotation.show_format, urls)
     respond_with response
   end
 
