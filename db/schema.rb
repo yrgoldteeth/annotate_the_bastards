@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101221205713) do
+ActiveRecord::Schema.define(:version => 20101221205714) do
 
   create_table "annotations", :force => true do |t|
     t.text     "body"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20101221205713) do
     t.string   "original_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
 end
