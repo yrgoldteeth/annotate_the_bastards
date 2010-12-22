@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101221205714) do
+ActiveRecord::Schema.define(:version => 20101222204713) do
 
   create_table "annotations", :force => true do |t|
     t.text     "body"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20101221205714) do
     t.integer  "line_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "original_url"
+    t.string   "title"
   end
 
   create_table "books", :force => true do |t|
