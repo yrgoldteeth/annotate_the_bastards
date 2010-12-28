@@ -1,15 +1,16 @@
-class JrParser
+class Parser
+  
   ANNOTATION_REGEX = /^[0-9]*\.[0-9]*(\]|\:)/
   attr_reader :file, :book, :parsed_results, :save_models, :generated_annotations
 
-  def initialize note_file, save_models=false
+  def initialize note_file, book, save_models=false
     @save_models      = save_models
-    @book             = Book.find_by_slug('jr')
+    @book             = book
     @file             = note_file
     @parsed_results   = []
     @generated_annotations = []
   end
-
+  
   def run!
     parse
     generate_models
