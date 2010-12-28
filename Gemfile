@@ -4,6 +4,7 @@ gem 'rails', '3.0.3'
 gem 'heroku'
 gem 'nokogiri'
 gem 'jquery-rails'
+gem 'haml', :require => 'haml'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
