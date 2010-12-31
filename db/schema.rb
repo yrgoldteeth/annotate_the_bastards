@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110117193322) do
+ActiveRecord::Schema.define(:version => 20110117193323) do
 
   create_table "annotations", :force => true do |t|
     t.text     "body"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110117193322) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.string   "amazon_url"
   end
 
   add_index "books", ["slug"], :name => "index_books_on_slug", :unique => true

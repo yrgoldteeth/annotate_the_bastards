@@ -1,7 +1,13 @@
 class Book < ActiveRecord::Base
   has_many :annotations
 
-  validates_presence_of :title, :slug, :original_url
+  validates_presence_of :title, :slug, :original_url, :amazon_url
+
+  class << self
+    def slug_list
+      Book.all.map(&:slug).join(', ')
+    end
+  end
 
   def to_s
     title

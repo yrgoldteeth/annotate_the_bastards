@@ -381,7 +381,7 @@ body .bottom {
 }
 /* line 8, ../../../../../.rvm/gems/ruby-1.9.2-p136@annotate_the_bastards/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
 body .showgrid {
-  background: url('/images/grid.png?1295283720');
+  background: url('/images/grid.png?1293761010');
 }
 /* line 4, ../../../../../.rvm/gems/ruby-1.9.2-p136@annotate_the_bastards/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body .error {
@@ -503,14 +503,19 @@ form textarea {
   height: 250px;
 }
 
-/* line 26, ../../../app/stylesheets/screen.scss */
+/* line 25, ../../../app/stylesheets/screen.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 27, ../../../app/stylesheets/screen.scss */
 body #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 28, ../../../app/stylesheets/screen.scss */
+/* line 29, ../../../app/stylesheets/screen.scss */
 body #header, body #footer {
   display: inline;
   float: left;
@@ -521,7 +526,7 @@ body #header, body #footer {
 * html body #header, * html body #footer {
   overflow-x: hidden;
 }
-/* line 30, ../../../app/stylesheets/screen.scss */
+/* line 31, ../../../app/stylesheets/screen.scss */
 body #sidebar {
   display: inline;
   float: left;
@@ -532,7 +537,7 @@ body #sidebar {
 * html body #sidebar {
   overflow-x: hidden;
 }
-/* line 33, ../../../app/stylesheets/screen.scss */
+/* line 34, ../../../app/stylesheets/screen.scss */
 body #content {
   display: inline;
   float: left;

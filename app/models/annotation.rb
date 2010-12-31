@@ -20,14 +20,18 @@ class Annotation < ActiveRecord::Base
 
   # page_number.line_number - title
   def to_s
-    %Q(#{page_number}.#{line_number} - #{title})
+    %Q(#{page_number}.#{line_number})
   end
 
   def next_annotation
-    Annotation.for_book(book).after(self).first
+    book.annotations.after(self).first
   end
 
   def previous_annotation
-    Annotation.for_book(book).before(self).last
+    book.annotations.before(self).last
+  end
+
+  def pagination_page
+    (book.annotations.before(self).count / 30) + 1
   end
 end

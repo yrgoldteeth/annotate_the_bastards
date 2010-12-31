@@ -48,8 +48,8 @@ describe Annotation do
   subject{ annotation }
 
   describe '#to_s' do
-    it 'returns page_number.line_number - title' do
-      subject.to_s.should == %Q(#{subject.page_number}.#{subject.line_number} - #{subject.title})
+    it 'returns page_number.line_number' do
+      subject.to_s.should == %Q(#{subject.page_number}.#{subject.line_number})
     end
   end
 end
