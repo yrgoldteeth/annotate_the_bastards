@@ -2,4 +2,4 @@
   %ul
     - @annotations.each do |annotation|
       %li= link_to_unless_current annotation, book_annotation_path(@book, annotation, :page => annotation.pagination_page)
-  %p= will_paginate @annotations
+  %p= will_paginate @annotations, :inner_window => 1, :next_label => 'next', :previous_label => 'prev'
