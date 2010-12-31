@@ -1,7 +1,6 @@
 AnnotateTheBastards::Application.routes.draw do
   root :to => "books#index"
 
-  
   resources :books, :only => [:index] do
     resources :annotations, :only => [:index, :show]
   end

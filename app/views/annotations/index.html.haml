@@ -7,4 +7,5 @@
     %p= will_paginate @annotations, :inner_window => 1, :next_label => 'next', :previous_label => 'prev', :param_name => 'p'
   - else
     %p= "Annotations for #{@book} are currently in progress.  Please check back later"
-= render :partial => 'book_detail_header'
+#content
+  = render :partial => 'book_detail_header'

@@ -1,6 +1,5 @@
-#content
-  %h2= @book
-  %ul.book_information
-    %li= link_to 'View original page and errata on williamgaddis.org', @book.original_url
-    %li= link_to "Find #{@book} at Amazon.com", @book.amazon_url
-    %li= link_to "Google search for #{@book}", @book.google_url
+%h2= @book
+%ul.book_information
+  %li= link_to 'View original page and errata on williamgaddis.org', @book.original_url
+  %li= link_to "Find #{@book} at Amazon.com", @book.amazon_url
+  %li= link_to "Google search for #{@book}", @book.google_url
