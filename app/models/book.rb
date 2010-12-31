@@ -19,4 +19,9 @@ class Book < ActiveRecord::Base
   def to_param
     slug
   end
+
+  def google_url
+    pluserized = title.gsub(' ','+')
+    %Q(http://www.google.com/search?q=William+Gaddis+#{pluserized})
+  end
 end

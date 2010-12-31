@@ -13,7 +13,7 @@ class AnnotationsController < ApplicationController
   
   public
   def index
-    @annotations = @book.annotations.ordered.paginate :page => params[:page]
+    @annotations = @book.annotations.ordered.paginate :page => params[:p]
   end
   
   def show
