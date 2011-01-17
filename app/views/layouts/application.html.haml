@@ -7,4 +7,10 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
-= yield
+    = render :partial => 'shared/flash_notices'
+    #container
+      #header
+        %h1 Annotate The Bastards
+      = yield
+      #footer
+        YA BIT!
