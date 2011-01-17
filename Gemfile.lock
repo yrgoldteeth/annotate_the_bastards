@@ -30,6 +30,8 @@ GEM
     activesupport (3.0.3)
     arel (2.0.6)
     builder (2.1.2)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     configuration (1.2.0)
     daemons (1.1.0)
     diff-lcs (1.1.2)
@@ -103,11 +105,13 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  compass
   faker
   haml
   heroku
@@ -119,3 +123,4 @@ DEPENDENCIES
   shoulda
   sqlite3-ruby
   thin
+  will_paginate (~> 3.0.pre2)
