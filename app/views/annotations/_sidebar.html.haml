@@ -1,0 +1,5 @@
+#sidebar
+  %ul
+    - @annotations.each do |annotation|
+      %li= link_to annotation, book_annotation_path(@book, annotation, :page => params[:page])
+  %p= will_paginate @annotations
