@@ -1,15 +1,20 @@
 class AnnotationsController < ApplicationController
   respond_to :html, :json, :xml
   before_filter :get_book
-  before_filter :get_annotation,  :only => [:show]
+  before_filter :get_annotations
+  before_filter :get_annotation, :only => [:show]
 
   protected
   def get_book
     @book = Book.find_by_slug(params[:book_id])
     unless @book
-      flash[:error] = %Q(No book found with that id.  Choose one of #{Book.all.map(&:slug)})
+      flash[:error] = %Q(No book found with that id.  Choose one of #{Book.all.map(&:slug).join(', ')})
       redirect_to books_path and return
     end
+  end
+
+  def get_annotations
+    @annotations = @book.annotations.ordered.paginate :page => params[:page]
   end
 
   def get_annotation
@@ -22,7 +27,6 @@ class AnnotationsController < ApplicationController
 
   public
   def index
-    @annotations = @book.annotations.ordered.paginate :page => params[:page]
     respond_with @annotations
   end
 
