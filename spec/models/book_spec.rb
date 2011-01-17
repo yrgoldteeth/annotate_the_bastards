@@ -6,15 +6,6 @@ describe Book do
   it {should validate_presence_of(:slug)}
   it {should validate_presence_of(:original_url)}
 
-  context 'scopes' do 
-    describe '.result_set' do
-      before { 5.times{Book.make} }
-      it 'returns title and original url in collection' do
-        Book.result_set.map(&:attributes).map(&:keys).uniq.flatten.sort.should == %w(original_url title slug).sort
-      end
-    end
-  end
-  
   let(:book) { Book.make }
   subject{ book }
   
