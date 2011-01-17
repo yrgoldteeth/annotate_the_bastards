@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101222204713) do
+ActiveRecord::Schema.define(:version => 20110117193322) do
 
   create_table "annotations", :force => true do |t|
     t.text     "body"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20101222204713) do
     t.string   "title"
   end
 
+  add_index "annotations", ["book_id"], :name => "index_annotations_on_book_id"
+
   create_table "books", :force => true do |t|
     t.string   "title"
     t.string   "original_url"
@@ -30,5 +32,7 @@ ActiveRecord::Schema.define(:version => 20101222204713) do
     t.datetime "updated_at"
     t.string   "slug"
   end
+
+  add_index "books", ["slug"], :name => "index_books_on_slug", :unique => true
 
 end
