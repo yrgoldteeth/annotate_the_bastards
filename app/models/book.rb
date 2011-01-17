@@ -1,9 +1,7 @@
 class Book < ActiveRecord::Base
   has_many :annotations
 
-  validates_presence_of   :title, :slug, :original_url
-
-  scope :result_set, select([:title, :original_url, :slug])
+  validates_presence_of :title, :slug, :original_url
 
   def to_s
     title
@@ -14,9 +12,5 @@ class Book < ActiveRecord::Base
   # the grave, keeping this set limited.
   def to_param
     slug
-  end
-
-  def page_range
-    annotations.minimum(:page_number)..annotations.maximum(:page_number)
   end
 end
