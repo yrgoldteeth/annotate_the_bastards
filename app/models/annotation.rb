@@ -6,6 +6,7 @@ class Annotation < ActiveRecord::Base
   scope :reverse_ordered,    order("annotations.page_number DESC").order("annotations.line_number DESC")
   scope :for_book,           lambda {|book| ordered.where('annotations.book_id = ?', book.id)}
   scope :start_page,         lambda {|page| ordered.where('annotations.page_number >= ?', page)}
+  scope :for_page,           lambda {|page| ordered.where('annotations.page_number = ?', page)}
   scope :before,             lambda {|annotation| 
                                 page = annotation.page_number
                                 line = annotation.line_number
@@ -33,5 +34,9 @@ class Annotation < ActiveRecord::Base
 
   def pagination_page
     (book.annotations.before(self).count / 30) + 1
+  end
+
+  def page_number_link
+    %Q(/books/#{book.slug}/annotations/page/#{page_number})
   end
 end

@@ -1,21 +1,8 @@
 class AnnotationsController < ApplicationController
   respond_to :html
   before_filter :get_book
-  before_filter :get_annotations
-  before_filter :get_annotation, :only => [:show]
-  before_filter :setup_pagination
-
+  
   protected
-  def setup_pagination
-    unless @annotation
-      @annotation = @annotations.first
-    end
-
-    unless params[:page] && params[:page].to_i == @annotation.pagination_page
-      redirect_to book_annotation_path(@book, @annotation, :page => @annotation.pagination_page) and return
-    end
-  end
-
   def get_book
     @book = Book.find_by_slug(params[:book_id])
     unless @book
@@ -23,20 +10,32 @@ class AnnotationsController < ApplicationController
       redirect_to books_path and return
     end
   end
-
-  def get_annotations
+  
+  public
+  def index
     @annotations = @book.annotations.ordered.paginate :page => params[:page]
   end
-
-  def get_annotation
+  
+  def show
     @annotation = @book.annotations.find_by_id(params[:id])
     unless @annotation
       flash[:error] = %(No annotation found with that id.)
-      redirect_to book_annotations_path(@book, :page => params[:page]) and return
+      redirect_to book_annotations_path(@book)
     end
   end
 
-  public
-  def index;end
-  def show;end
+  def page
+    annotation = @book.annotations.start_page(params[:page_id].to_i).first
+    unless annotation
+      flash[:error] = %(No annotations found near that page number.)
+      redirect_to book_annotations_path(@book) and return
+    end
+
+    unless annotation.page_number.to_s == params[:page_id]
+      flash[:notice] = %Q(No annotations found for page #{params[:page_id]}.  Redirected to next page with annotations.)
+      redirect_to annotation.page_number_link and return
+    end
+    @annotations = @book.annotations.for_page(annotation.page_number)
+  end
+
 end

@@ -1,3 +1,11 @@
-= render :partial => 'sidebar'
+#sidebar
+  %h3= "Annotations for #{@book}"
+  - if @annotations.any?
+    %ul
+      - @annotations.each do |annotation|
+        %li= link_to_unless_current annotation, annotation.page_number_link
+    %p= will_paginate @annotations, :inner_window => 1, :next_label => 'next', :previous_label => 'prev'
+  - else
+    %p= "Annotations for #{@book} are currently in progress.  Please check back later"
 #content
   %h2 Book Information

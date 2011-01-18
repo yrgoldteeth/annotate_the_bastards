@@ -15,5 +15,5 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda'
   gem 'thin'
-#  gem 'ruby-debug19'
+  gem 'ruby-debug19'
 end

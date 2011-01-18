@@ -54,7 +54,7 @@ class Parser
               }
     
     annotation = Annotation.new(options)
-    annotation.save! if save_models
+    annotation.save if save_models
     annotation
   end
   
