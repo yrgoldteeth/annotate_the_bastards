@@ -51,3 +51,8 @@ urls.each do |u|
 `wget #{u}`
 end
 
+(1..7).to_a.each{|x|`wget http://williamgaddis.org/gothic/gothicnotes#{x}.shtml`}
+
+(1..10).to_a.each{|x|`wget http://williamgaddis.org/frolic/frolicnotes#{x}.shtml`}
+
+http://williamgaddis.org/agape/aanotes.shtml
