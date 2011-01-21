@@ -15,5 +15,6 @@ annotation information with mobile browsers being the primary target.
 AtB! is a labor of love developed by [Nicholas Fine](http://ndfine.com).  Born from some personal use
 shell scripts while reading *JR*, it seemed that extracting this information into a mobile browser
 application could be useful for other readers as they progress through Gaddis' works.  AtB! is being 
-developed in [Ruby on Rails](http://rubyonrails.org) and [jQuery Mobile](http://jquerymobile.com). 
-As development wraps up, Nicholas also intends to release the source code for AtB! on [github](http://github.com).  
+developed in [Ruby on Rails](http://rubyonrails.org) and [jQuery Mobile](http://jquerymobile.com) and 
+is hosted by the inimitable [Heroku](http://heroku.com). As development wraps up, Nicholas also intends 
+to release the source code for AtB! on [github](http://github.com).  
