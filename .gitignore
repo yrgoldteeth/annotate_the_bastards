@@ -6,3 +6,4 @@ tmp/*
 *.sqlite3
 _site/*.rb
 _site/*.ru
+.sass-cache/*
