@@ -4,3 +4,5 @@ log/*
 tmp
 tmp/*
 *.sqlite3
+_site/*.rb
+_site/*.ru
