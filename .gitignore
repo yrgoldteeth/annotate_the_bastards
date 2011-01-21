@@ -7,3 +7,5 @@ tmp/*
 _site/*.rb
 _site/*.ru
 .sass-cache/*
+Gemfile*
+*.scss
