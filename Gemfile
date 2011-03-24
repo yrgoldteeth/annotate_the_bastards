@@ -8,6 +8,7 @@ gem 'heroku'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem 'compass'
+gem 'uuid'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0.1'
