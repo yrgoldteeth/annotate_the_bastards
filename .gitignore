@@ -4,3 +4,4 @@ log/*
 tmp
 tmp/*
 *.sqlite3
+vendor/ruby
