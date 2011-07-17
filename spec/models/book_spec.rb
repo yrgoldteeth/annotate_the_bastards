@@ -22,9 +22,9 @@ describe Book do
     end
   end
 
-  before{ %w(foo bar baz).each{|s|Book.make(:slug => s)}}
+  before{ %w(recognitions jr frolic gothic agape).each{|s|Book.make(:slug => s)}}
 
   describe '.slug_list' do
-    specify { Book.slug_list.should == %w(foo bar baz).join(', ')}
+    specify { Book.slug_list.should == %w(recognitions jr frolic gothic agape).join(', ')}
   end
 end
