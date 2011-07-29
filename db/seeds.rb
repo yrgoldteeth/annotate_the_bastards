@@ -25,7 +25,7 @@ books = [
            :original_url => %(http://williamgaddis.org/agape/index.shtml)}
         ]
 
-books.each{|b| Book.create!(b)}
+books[0..1].each{|b| Book.create!(b)}
 
 Book.all.each do |b|
   files = Dir.glob("doc/#{b.slug}/*").sort

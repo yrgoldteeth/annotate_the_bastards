@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Annotate The Bastards!
+    = stylesheet_link_tag 'jquery.mobile'
+    = javascript_include_tag :defaults
+    = javascript_include_tag 'jquery.mobile'
+    = csrf_meta_tag
+  %body
+    %div{:data => {:role => 'page'}}
+      = yield
