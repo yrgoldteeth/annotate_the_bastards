@@ -17,7 +17,7 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda'
   gem 'thin'
-  gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'hpricot'
-  gem 'ruby_parser'
+#  gem 'ruby-debug19', :require => 'ruby-debug'
+#  gem 'hpricot'
+#  gem 'ruby_parser'
 end

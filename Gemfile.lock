@@ -28,11 +28,9 @@ GEM
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
     activesupport (3.0.9)
-    archive-tar-minitar (0.5.2)
     arel (2.0.10)
     builder (2.1.2)
     chunky_png (1.2.0)
-    columnize (0.3.4)
     compass (0.11.5)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -50,14 +48,11 @@ GEM
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       term-ansicolor (~> 1.0.5)
-    hpricot (0.8.4)
     i18n (0.5.0)
     jquery-rails (1.0.12)
       railties (~> 3.0)
       thor (~> 0.14)
     launchy (2.0.1)
-    linecache19 (0.5.12)
-      ruby_core_source (>= 0.1.4)
     macaddr (1.0.0)
     machinist (1.0.6)
     mail (2.2.19)
@@ -106,20 +101,7 @@ GEM
       rspec-expectations (~> 2.0.1)
     rspec-rails (2.0.1)
       rspec (~> 2.0.0)
-    ruby-debug-base19 (0.11.25)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
-    ruby_core_source (0.1.5)
-      archive-tar-minitar (>= 0.5.2)
-    ruby_parser (2.0.6)
-      sexp_processor (~> 3.0)
     sass (3.1.4)
-    sexp_processor (3.0.5)
     shoulda (2.11.3)
     sqlite3 (1.3.3)
     sqlite3-ruby (1.3.3)
@@ -145,15 +127,12 @@ DEPENDENCIES
   faker
   haml
   heroku
-  hpricot
   jquery-rails
   machinist
   nokogiri
   rabl
   rails (~> 3.0.3)
   rspec-rails (~> 2.0.1)
-  ruby-debug19
-  ruby_parser
   shoulda
   sqlite3-ruby
   thin
