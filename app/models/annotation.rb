@@ -4,6 +4,7 @@ class Annotation < ActiveRecord::Base
 
   scope :ordered,            order("annotations.page_number, annotations.line_number ASC")
   scope :reverse_ordered,    order("annotations.page_number DESC").order("annotations.line_number DESC")
+  scope :pages,              select('DISTINCT page_number')
   scope :for_book,           lambda {|book| ordered.where('annotations.book_id = ?', book.id)}
   scope :start_page,         lambda {|page| ordered.where('annotations.page_number >= ?', page)}
   scope :for_page,           lambda {|page| ordered.where('annotations.page_number = ?', page)}

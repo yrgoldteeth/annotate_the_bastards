@@ -1,11 +1,6 @@
-#sidebar
-  %h3= "Annotations for #{@book}"
-  - if @annotations.any?
-    %ul
-      - @annotations.each do |annotation|
-        %li= link_to_unless_current annotation, annotation.page_number_link
-    %p= will_paginate @annotations, :inner_window => 1, :next_label => 'next', :previous_label => 'prev', :param_name => 'p'
-  - else
-    %p= "Annotations for #{@book} are currently in progress.  Please check back later"
-#content
-  = render :partial => 'book_detail_header'
+%div{:data => {:role => 'header'}}
+  %h1= "Annotations for #{@book}"
+%div{:data => {:role => 'content'}}
+  %ul{:data => {:role => 'listview'}}
+    - @annotations.each do |annotation|
+      %li= page_link @book.slug, annotation.page_number

@@ -18,4 +18,6 @@ group :development, :test do
   gem 'shoulda'
   gem 'thin'
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'hpricot'
+  gem 'ruby_parser'
 end

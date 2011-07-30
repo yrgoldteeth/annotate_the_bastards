@@ -50,6 +50,7 @@ GEM
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       term-ansicolor (~> 1.0.5)
+    hpricot (0.8.4)
     i18n (0.5.0)
     jquery-rails (1.0.12)
       railties (~> 3.0)
@@ -115,7 +116,10 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
+    ruby_parser (2.0.6)
+      sexp_processor (~> 3.0)
     sass (3.1.4)
+    sexp_processor (3.0.5)
     shoulda (2.11.3)
     sqlite3 (1.3.3)
     sqlite3-ruby (1.3.3)
@@ -141,6 +145,7 @@ DEPENDENCIES
   faker
   haml
   heroku
+  hpricot
   jquery-rails
   machinist
   nokogiri
@@ -148,6 +153,7 @@ DEPENDENCIES
   rails (~> 3.0.3)
   rspec-rails (~> 2.0.1)
   ruby-debug19
+  ruby_parser
   shoulda
   sqlite3-ruby
   thin

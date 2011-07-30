@@ -1,4 +1,8 @@
 module AnnotationsHelper
+  def page_link book, page_number
+    link_to "Notes for page #{page_number}", %Q(/books/#{book}/annotations/page/#{page_number})
+  end
+
   def previous_link annotations
     if annotations.first.previous_annotation
       link_to "Previous Page", annotations.first.previous_annotation.page_number_link

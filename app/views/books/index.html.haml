@@ -1,7 +1,7 @@
-#sidebar
-  %ul
+%div{:data => {:role => 'header'}}
+  %h1= link_to 'Annotate The Bastards!', root_path
+%div{:data => {:role => 'content'}}
+  %ul{:data => {:role => 'listview'}}
     - @books.each do |book|
       %li= link_to book, book_annotations_path(book)
-#content
-  %h2 Welcome to Annotate The Bastards!
-  %p
+

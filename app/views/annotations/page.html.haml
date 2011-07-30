@@ -1,13 +1,8 @@
-#sidebar
-  = render :partial => 'book_detail_header'
-#content
-  %ul
-    %li= previous_link(@annotations)
-    %li= next_link(@annotations)
+%div{:data => {:role => 'header'}}
+  %h1= "Annotations for #{@book}"
+%div{:data => {:role => 'content'}}
   - @annotations.each do |annotation|
-    %h2= "#{annotation}"
-    %h3= "#{annotation.title}"
-    %p= "#{annotation.body}"
-  %ul
-    %li= previous_link(@annotations)
-    %li= next_link(@annotations)
+    %div{:data => {:role => 'collapsible', :collapsed => true}}
+      %h2= "#{annotation} #{annotation.title}"
+      %p= "#{annotation.body}"
+
