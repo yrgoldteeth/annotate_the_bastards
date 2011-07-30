@@ -5,4 +5,8 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def show
+    @book = Book.find_by_slug(params[:book_id])
+  end
+
 end

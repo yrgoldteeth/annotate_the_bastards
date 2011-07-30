@@ -35,6 +35,7 @@ class AnnotationsController < ApplicationController
       flash[:notice] = %Q(No annotations found for page #{params[:page_id]}.  Redirected to next page with annotations.)
       redirect_to annotation.page_number_link and return
     end
+    @page_num = params[:page_id]
     @annotations = @book.annotations.for_page(annotation.page_number)
   end
 

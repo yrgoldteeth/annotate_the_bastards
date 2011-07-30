@@ -1,8 +1,8 @@
 %div{:data => {:role => 'header'}}
-  %h1= "Annotations for #{@book}"
+  %h1= "Annotations for #{@book} page #{@page_num}"
 %div{:data => {:role => 'content'}}
   - @annotations.each do |annotation|
-    %div{:data => {:role => 'collapsible', :collapsed => true}}
+    %div{:data => {:role => 'collapsible', :collapsed => 'true'}}
       %h2= "#{annotation} #{annotation.title}"
       %p= "#{annotation.body}"
 
