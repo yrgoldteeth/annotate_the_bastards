@@ -3,8 +3,12 @@
   %a{:href => "#{root_path}", :data => {:role => 'button', :icon => 'back'}}
     Back
 %div{:data => {:role => 'content'}}
-  %a{:href => "#{book_annotations_path(@book)}", :data => {:role => 'button', :icon => 'check'}}
-    View Annotations List
+  - if @book.annotations.any?
+    %a{:href => "#{book_annotations_path(@book)}", :data => {:role => 'button', :icon => 'check'}}
+      View Annotations List
+  - else
+    %a{:href => "#", :data => {:role => 'button', :icon => 'alert'}}
+      Annotations Coming Soon
   %a{:href => "#{@book.original_url}", :data => {:role => 'button', :icon => 'home'}}
     View Original Page and Errata on williamgaddis.org
   %a{:href => "#{@book.amazon_url}", :data => {:role => 'button', :icon => 'info'}}
