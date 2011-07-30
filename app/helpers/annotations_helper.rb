@@ -7,7 +7,7 @@ module AnnotationsHelper
     if annotations.first.previous_annotation
       link_to "Previous Page", annotations.first.previous_annotation.page_number_link
     else
-      "..."
+      link_to "Back", book_annotations_path(annotations.first.book)
     end
   end
 
@@ -15,7 +15,7 @@ module AnnotationsHelper
     if annotations.last.next_annotation
       link_to "Next Page", annotations.last.next_annotation.page_number_link
     else
-      "..."
+      link_to "Back", book_path(annotations.first.book)
     end
   end
 end

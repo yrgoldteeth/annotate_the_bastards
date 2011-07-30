@@ -1,0 +1,13 @@
+%div{:data => {:role => 'header'}}
+  %h1= "#{@book} - William Gaddis"
+  %a{:href => "#{root_path}", :data => {:role => 'button', :icon => 'back'}}
+    Back
+%div{:data => {:role => 'content'}}
+  %a{:href => "#{book_annotations_path(@book)}", :data => {:role => 'button', :icon => 'check'}}
+    View Annotations List
+  %a{:href => "#{@book.original_url}", :data => {:role => 'button', :icon => 'home'}}
+    View original page and errata on williamgaddis.org
+  %a{:href => "#{@book.amazon_url}", :data => {:role => 'button', :icon => 'info'}}
+    = "Find #{@book} at Amazon"
+  %a{:href => "#{@book.google_url}", :data => {:role => 'button', :icon => 'search'}}
+    = "Google search for #{@book}"

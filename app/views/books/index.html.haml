@@ -1,5 +1,6 @@
 %div{:data => {:role => 'header'}}
-  %h1= link_to 'Annotate The Bastards!', root_path
+  %h1
+    Annotate The Bastards!
 %div{:data => {:role => 'content'}}
   %ul{:data => {:role => 'listview'}}
     - @books.each do |book|
