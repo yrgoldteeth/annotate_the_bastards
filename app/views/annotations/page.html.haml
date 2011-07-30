@@ -1,7 +1,6 @@
 %div{:data => {:role => 'header'}}
-  %h1= "Annotations for #{@book} page #{@page_num}"
+  %h1= link_to "Annotations for #{@book} page #{@page_num}", book_annotations_path(@book)
   = previous_link(@annotations)
-  = link_to 'Back', book_annotations_path(@book)
   = next_link(@annotations)
 %div{:data => {:role => 'content'}}
   - @annotations.each do |annotation|
