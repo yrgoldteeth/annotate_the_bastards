@@ -1,5 +1,5 @@
 class AnnotationsController < ApplicationController
-  respond_to :html, :mobile
+  respond_to :html
   before_filter :get_book
   
   protected
@@ -14,9 +14,6 @@ class AnnotationsController < ApplicationController
   public
   def index
     @annotations = @book.annotations.ordered
-    unless mobile_device?
-      @annotations = @annotations.paginate :page => params[:p]
-    end
   end
   
   def show
