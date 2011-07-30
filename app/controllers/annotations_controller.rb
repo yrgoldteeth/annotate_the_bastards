@@ -13,7 +13,7 @@ class AnnotationsController < ApplicationController
   
   public
   def index
-    @annotations = @book.annotations.ordered.pages
+    @annotations = @book.annotations.pages
   end
   
   def show
