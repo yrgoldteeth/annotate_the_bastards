@@ -1,5 +1,6 @@
 %div{:data => {:role => 'header'}}
   %h1= "Annotations for #{@book}"
+  = link_to 'Back', book_path(@book)
 %div{:data => {:role => 'content'}}
   %ul{:data => {:role => 'listview'}}
     - @annotations.each do |annotation|
