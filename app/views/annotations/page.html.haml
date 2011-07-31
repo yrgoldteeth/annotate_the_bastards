@@ -4,7 +4,7 @@
   = next_link(@annotations)
 %div{:data => {:role => 'content'}}
   - @annotations.each_with_index do |annotation, i|
-    %div{:data => {:role => 'collapsible', :collapsed => i == 0 ? 'true' : 'false'}}
+    %div{:data => {:role => 'collapsible', :collapsed => i == 0 ? 'false' : 'true'}}
       %h2= "#{annotation}"
       %h3= "#{annotation.title}"
       %p= "#{annotation.body}"
