@@ -12,7 +12,7 @@
 
       [wg]: http://williamgaddis.org
   %div{:data => {:role => 'collapsible', :collapsed => 'true'}}
-    %h2
+    %h2 
       Books
     - @books.each do |book|
       %a{:href => "#{book_path(book)}", :data => {:role => 'button', :icon => 'star'}}
@@ -21,6 +21,17 @@
     %h2
       Colophon
     :markdown
-      While reading *JR*
+      While reading *JR* I found it difficult to use the annotations on [williamgaddis.org][wg]
+      on anything other than a full computer with monitor, and that's just not ideal.  So, I 
+      pulled together this mobile web app so that I could use my iPhone to read along with the novel.  
+
+      Built with [Ruby on Rails][rr] and [Jquery Mobile][jq] and hosted on [Heroku][h]
+
+      [Nicholas Fine][http://ndfine.com]. 
+      
+      [wg]: http://williamgaddis.org
+      [rr]: http://rubyonrails.org
+      [jq]: http://jquerymobile.com
+      [h]:  http://heroku.com
 
 
