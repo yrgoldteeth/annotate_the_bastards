@@ -1,10 +1,11 @@
 %div{:data => {:role => 'header'}}
-  %h1= link_to "Annotations for #{@book} page #{@page_num}", book_annotations_path(@book)
+  %h1= link_to "Page #{@page_num} | #{@book}", book_annotations_path(@book)
   = previous_link(@annotations)
   = next_link(@annotations)
 %div{:data => {:role => 'content'}}
   - @annotations.each do |annotation|
     %div{:data => {:role => 'collapsible', :collapsed => 'true'}}
-      %h2= "#{annotation} #{annotation.title}"
+      %h2= "#{annotation}"
+      %h3= "#{annotation} #{annotation.title}"
       %p= "#{annotation.body}"
 
