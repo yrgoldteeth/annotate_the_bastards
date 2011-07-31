@@ -1,14 +1,16 @@
 %div{:data => {:role => 'header'}}
   %h1
-    Annotate The Bastards!
+    AtB!
 %div{:data => {:role => 'content'}}
   %div{:data => {:role => 'collapsible'}}
     %h2
       Welcome to AtB!
     %p
-      Annotate The Bastards is a mobile web app that works as an 
+      :markdown
+        Annotate The Bastards! is a mobile web app that works as an 
       alternate interface to display the detailed annotations for
-      the novels of William Gaddis that can be found on williamgaddis.org
+      the novels of William Gaddis that can be found on (williamgaddis.org)[wg]
+      [wg]: http://williamgaddis.org
   %div{:data => {:role => 'collapsible', :collapsed => 'true'}}
     %h2
       Books
@@ -16,4 +18,6 @@
       %a{:href => "#{book_path(book)}", :data => {:role => 'button', :icon => 'star'}}
         "#{book}"
   %div{:data => {:role => 'collapsible', :collapsed => 'true'}}
+    %h2
+      Colophon
 
