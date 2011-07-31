@@ -16,7 +16,7 @@
       Books
     - @books.each do |book|
       %a{:href => "#{book_path(book)}", :data => {:role => 'button', :icon => 'star'}}
-        "#{book}"
+        #{book}
   %div{:data => {:role => 'collapsible', :collapsed => 'true'}}
     %h2
       Colophon
