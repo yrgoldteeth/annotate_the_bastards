@@ -30,7 +30,7 @@ class Annotation < ActiveRecord::Base
   end
 
   def previous_annotation
-    book.annotations.before(self).last
+    book.annotations.before(self).first
   end
 
   def pagination_page

@@ -13,7 +13,7 @@ module AnnotationsHelper
 
   def next_link annotations
     if annotations.last.next_annotation
-      link_to "Next Page", annotations.last.next_annotation.page_number_link
+      link_to "#{annotations.last.next_annotation.page_number}", annotations.last.next_annotation.page_number_link
     else
       link_to "Back", book_path(annotations.first.book)
     end
