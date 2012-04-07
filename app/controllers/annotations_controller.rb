@@ -1,6 +1,10 @@
 class AnnotationsController < ApplicationController
   respond_to :html
   before_filter :get_book
+
+  caches_page :index
+  caches_page :show
+  caches_page :page
   
   protected
   def get_book
