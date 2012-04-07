@@ -10,6 +10,7 @@ gem 'uuid'
 gem 'rabl'
 gem 'rdiscount'
 gem 'bundler'
+gem 'version'
 
 group :development, :test do
   gem 'rspec-rails'

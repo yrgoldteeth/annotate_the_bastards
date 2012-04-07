@@ -127,6 +127,7 @@ GEM
     tzinfo (0.3.32)
     uuid (2.3.5)
       macaddr (~> 1.0)
+    version (1.0.0)
 
 PLATFORMS
   ruby
@@ -147,3 +148,4 @@ DEPENDENCIES
   shoulda
   sqlite3
   uuid
+  version
