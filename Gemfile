@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'uuid'
 gem 'rabl'
 gem 'rdiscount'
+gem 'bundler'
 
 group :development, :test do
   gem 'rspec-rails'
