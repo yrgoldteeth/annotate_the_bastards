@@ -1,8 +1,7 @@
 class BooksController < ApplicationController
   respond_to :html
+  before_filter :cache_that_shit
 
-  caches_page :index
-  caches_page :show
 
   def index
     @books = Book.all

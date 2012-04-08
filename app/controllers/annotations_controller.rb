@@ -1,11 +1,8 @@
 class AnnotationsController < ApplicationController
   respond_to :html
   before_filter :get_book
+  before_filter :cache_that_shit
 
-  caches_page :index
-  caches_page :show
-  caches_page :page
-  
   protected
   def get_book
     @book = Book.find_by_slug(params[:book_id])
