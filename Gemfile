@@ -11,6 +11,7 @@ gem 'rabl'
 gem 'rdiscount'
 gem 'bundler'
 gem 'version'
+gem 'dalli'
 
 group :development, :test do
   gem 'rspec-rails'

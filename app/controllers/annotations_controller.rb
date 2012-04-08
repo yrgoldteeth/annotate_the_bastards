@@ -2,6 +2,10 @@ class AnnotationsController < ApplicationController
   respond_to :html
   before_filter :get_book
   before_filter :cache_that_shit
+  
+  caches_action :index
+  caches_action :show
+  caches_action :page
 
   protected
   def get_book
