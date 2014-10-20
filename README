@@ -1,6 +1,0 @@
-## Bootstrap
-
-echo "rvm 1.9.2@annotate --create">.rvmrc
-bundle install
-rake db:migrate
-bundle exec rake spec
